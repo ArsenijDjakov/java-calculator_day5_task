@@ -1,25 +1,26 @@
+package Main;
+
 public class Expression {
 
     public Expression() {
     }
 
     public boolean checkExpression(String input) {
+
         input = input.trim();
+
+        Operand operand = new Operand();
 
         if (input.equalsIgnoreCase("quit")) {
             return false;
         } else {
-            if (parse(input).length < 2) {
+            if (operand.parse(input).length < 2) {
                 System.out.println("Invalid Input");
             } else {
-                Operands operands = new Operands();
-                operands.expressionToOperands(input);
+                operand.expressionToOperands(input);
             }
             return true;
         }
     }
 
-    public String[] parse(String input) {
-        return input.split(" ");
-    }
 }
